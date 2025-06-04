@@ -13,6 +13,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmitOnError": true,
   },
-  "include": ["*.ts"],
+  "include": ["**.ts", "core/app.ts"],
   "exclude": ["node_modules"]
 }

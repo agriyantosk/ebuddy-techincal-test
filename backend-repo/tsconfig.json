@@ -5,6 +5,7 @@
     "sourceMap": true,
     "outDir": "./build",
     "types": ["node", "express"],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -13,6 +14,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmitOnError": true,
   },
-  "include": ["**.ts", "core/app.ts"],
+  "include": ["**/*.ts", "types"],
   "exclude": ["node_modules"]
 }

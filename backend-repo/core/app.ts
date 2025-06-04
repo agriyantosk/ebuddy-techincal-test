@@ -2,14 +2,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-import db from "../config/firebaseConfig";
+import { userRoutes } from "../routes";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/api", userRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

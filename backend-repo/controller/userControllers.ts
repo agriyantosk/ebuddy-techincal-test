@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { fetchUserData, updateUserData } from "../repository/userCollection";
 import { sendSuccess, throwError } from "../utils/responsesHandler";
+import { IUser } from "../entities/user";
 
 const userControllers = {
   fetchUserData: async (req: Request, res: Response, next: NextFunction) => {
@@ -22,14 +23,16 @@ const userControllers = {
 
       const { totalAverageWeightRatings, numberOfRents, recentlyActive } =
         req.body;
-      const updatedData = {
+      const updatedData: IUser = {
         totalAverageWeightRatings,
         numberOfRents,
         recentlyActive,
       };
 
-      const updateUser = await updateUserData(user.uid, updatedData);
-      sendSuccess(res, updateUser, "Successfully update user data!", 200);
+      await updateUserData(user.uid, updatedData);
+
+      const newData = await fetchUserData(user.uid);
+      sendSuccess(res, newData, "Successfully update user data!", 200);
     } catch (error) {
       next(error);
     }

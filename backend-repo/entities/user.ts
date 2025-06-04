@@ -1,5 +1,5 @@
 export interface IUser {
-  id: string;
+  uid?: string;
   totalAverageWeightRatings: number;
   numberOfRents: number;
   recentlyActive: number;

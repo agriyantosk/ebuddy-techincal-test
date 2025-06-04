@@ -73,9 +73,9 @@ const UserInfoCard = ({ props }: { props: UserInfoCardProps }) => {
 
         <CardActions sx={{ justifyContent: "center" }}>
           {isEditing ? (
-            <Button title="Save" onClick={onSubmit} />
+            <Button title="Save" onClick={onSubmit} type="submit" />
           ) : (
-            <Button title="Edit" onClick={onEditToggle} />
+            <Button title="Edit" onClick={onEditToggle} type="button" />
           )}
         </CardActions>
       </Stack>

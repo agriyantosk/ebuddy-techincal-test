@@ -1,0 +1,20 @@
+{
+  "name": "ebuddy-techincal-test",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc --version && tsc",
+    "dev": "nodemon index.ts",
+    "start": "node --max-old-space-size=8192 build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

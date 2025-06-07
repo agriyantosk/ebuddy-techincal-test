@@ -2,25 +2,27 @@ import { Box, Stack, Card, CardContent, CardActions } from "@mui/material";
 import Button from "@/components/atoms/Button";
 import TextField from "@/components/atoms/TextField";
 import Typography from "@/components/atoms/Typography";
-import { useState } from "react";
 
 type LoginFormProps = {
-  onSubmit: (email: string, password: string) => void;
+  email: string;
+  password: string;
+  setEmail: (value: string) => void;
+  setPassword: (value: string) => void;
+  onSubmit: (e: React.FormEvent) => void;
   isLoading?: boolean;
 };
 
-const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(email, password);
-  };
-
+const LoginForm = ({
+  email,
+  password,
+  setEmail,
+  setPassword,
+  onSubmit,
+  isLoading = false,
+}: LoginFormProps) => {
   return (
     <Card sx={{ width: "30%", mx: "auto" }}>
-      <Box component="form" onSubmit={handleSubmit}>
+      <Box component="form" onSubmit={onSubmit}>
         <CardContent>
           <Stack spacing={3}>
             <Typography
